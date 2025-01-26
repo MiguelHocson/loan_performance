@@ -76,6 +76,7 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
 
 ## Data Cleaning, Transforming & Testing
 
+
 The foilowing were the criteria for a clean data:
 
   - Column Relevance: Retain only the columns relevant to the analysis or application.
@@ -84,17 +85,21 @@ The foilowing were the criteria for a clean data:
   - Validation of Extreme Values: Identify, validate, and address extreme values as needed, replacing them when necessary.
   - Data Types: Ensure data types align appropriately with the contents of each column.
 
+
+
 Below were the steps taken to clean, transform and test the data:
+
 
 1. Load the dataset in SQL
 2. Examine dataset
-   
-       ```sql
-   
-       SELECT *
+
+	```sql
+
+SELECT *
        FROM loan_dataset
-   
-       ```
+
+       
+   ```
 
 
 
@@ -111,13 +116,13 @@ Below were the steps taken to clean, transform and test the data:
        	COUNT(*)
        FROM loan_dataset
        GROUP BY 
-	       customer_id
+	       customer_id 
        HAVING
       	 COUNT(*) > 1;
        ```
 
 
-		![Duplicates_doublechecking](assets/images/Duplicate_doublechecking.png)
+	 ![Duplicates_doublechecking](assets/images/Duplicate_doublechecking.png)
 
 
 
@@ -151,7 +156,7 @@ Below were the steps taken to clean, transform and test the data:
       
        ```
 
-	![Duplicates_doublechecking](assets/images/extreme_custage.png)
+	  ![Duplicates_doublechecking](assets/images/extreme_custage.png)
 
 
 
@@ -180,7 +185,7 @@ Below were the steps taken to clean, transform and test the data:
       
        ```
 
-	 ![Duplicates_doublechecking](assets/images/extreme_empduration.png)
+	  ![Duplicates_doublechecking](assets/images/extreme_empduration.png)
 
 
 
@@ -224,6 +229,9 @@ Below were the steps taken to clean, transform and test the data:
        ```
 
 
+	  ![Duplicates_doublechecking](assets/images/customerid_null.png)
+
+
 
 
  - loan_int_rate
@@ -261,7 +269,7 @@ Below were the steps taken to clean, transform and test the data:
        
        ```
 
-	 ![Duplicates_doublechecking](assets/images/average_intrate.png)
+	  ![Duplicates_doublechecking](assets/images/average_intrate.png)
 
 
   
@@ -288,7 +296,7 @@ Below were the steps taken to clean, transform and test the data:
 
        ```
 
-	 ![Duplicates_doublechecking](assets/images/currentloanstatus_defaultrows.png)
+	  ![Duplicates_doublechecking](assets/images/currentloanstatus_defaultrows.png)
 
 
 
@@ -323,7 +331,7 @@ Below were the steps taken to clean, transform and test the data:
        ```
 
 
-	 ![Duplicates_doublechecking](assets/images/historicaldefault_pergrade.png)
+	  ![Duplicates_doublechecking](assets/images/historicaldefault_pergrade.png)
 
 
 
@@ -342,7 +350,7 @@ Below were the steps taken to clean, transform and test the data:
            INFORMATION_SCHEMA.COLUMNS;
 
 
-	 ![Duplicates_doublechecking](assets/images/information_schema.png)
+	  ![Duplicates_doublechecking](assets/images/information_schema.png)
 
 
 
