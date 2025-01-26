@@ -68,7 +68,9 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
   4. The loan_amnt column contained an unusual character preceding the British Pound symbol.
   5. Six duplicate rows were found and removed.
 
-![Duplicates_removed](insert duplicate image link)
+![Duplicates_removed](assets/images/Duplicates_removed.png)
+
+
 
 ## Data Cleaning, Transforming & Testing
 
@@ -91,6 +93,7 @@ Below were the steps taken to clean, transform and test the data:
    
        ```
 
+
 3. Double-check for duplicates
 
        ```sql
@@ -108,11 +111,13 @@ Below were the steps taken to clean, transform and test the data:
       	 COUNT(*) > 1;
        ```
 
-![Duplicates_doublechecking](insert double-checking duplicate image link)
+![Duplicates_doublechecking](assets/images/Duplicate_doublechecking.png)
+
+
 
 4. Identify Extreme Values/Outliers and replace as necessary
 
--customer_age
+- customer_age
 
       ```sql
       /*
@@ -137,7 +142,11 @@ Below were the steps taken to clean, transform and test the data:
       
       ```
 
--employment_duration
+![Duplicates_doublechecking](assets/images/extreme_custage.png)
+
+
+
+- employment_duration
 
       ```sql
       /*
@@ -158,6 +167,9 @@ Below were the steps taken to clean, transform and test the data:
       
       ```
 
+![Duplicates_doublechecking](assets/images/extreme_empduration.png)
+
+
 
 5. Check for NULL values
 
@@ -177,7 +189,7 @@ Below were the steps taken to clean, transform and test the data:
       
        ```
 
--customer_id
+- customer_id
 
       ```sql
       /*
@@ -195,7 +207,7 @@ Below were the steps taken to clean, transform and test the data:
       ```
 
 
--loan_int_rate
+- loan_int_rate
 
       ```sql
       /*
@@ -229,7 +241,11 @@ Below were the steps taken to clean, transform and test the data:
       WHERE loan_int_rate IS NULL
       ```
 
--current_loan_status
+![Duplicates_doublechecking](assets/images/average_intrate.png)
+
+  
+
+- current_loan_status
 
       ```sql
       /*
@@ -250,7 +266,10 @@ Below were the steps taken to clean, transform and test the data:
       WHERE Current_loan_status IS NULL;
       ```
 
--historical_default
+![Duplicates_doublechecking](assets/images/currentloanstatus_defaultrows.png)
+
+
+- historical_default
 
       ```sql
       /*
@@ -279,6 +298,10 @@ Below were the steps taken to clean, transform and test the data:
       ```
 
 
+![Duplicates_doublechecking](assets/images/historicaldefault_pergrade.png)
+
+
+
 6. Check if the data_type and IS_NULLABLE per column are correct
 
        ```sql
@@ -292,6 +315,10 @@ Below were the steps taken to clean, transform and test the data:
          IS_NULLABLE
        FROM
 	       INFORMATION_SCHEMA.COLUMNS;
+
+
+![Duplicates_doublechecking](assets/images/information_schema.png)
+
 
 
 
