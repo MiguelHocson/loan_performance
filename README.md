@@ -68,6 +68,7 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
   4. The loan_amnt column contained an unusual character preceding the British Pound symbol.
   5. Six duplicate rows were found and removed.
 
+
      ![Duplicates_removed](assets/images/Duplicates_removed.png)
 
 
@@ -104,7 +105,7 @@ Below were the steps taken to clean, transform and test the data:
 
 3. Double-check for duplicates
 
-       ```sql
+	```sql
    
        /*
        double-checking duplicates
@@ -118,10 +119,11 @@ Below were the steps taken to clean, transform and test the data:
 	       customer_id 
        HAVING
       	 COUNT(*) > 1;
-       ```
+ 
+ 	```
 
 
-	 ![Duplicates_doublechecking](assets/images/Duplicate_doublechecking.png)
+	  ![Duplicates_doublechecking](assets/images/Duplicate_doublechecking.png)
 
 
     
@@ -131,7 +133,7 @@ Below were the steps taken to clean, transform and test the data:
 
  - customer_age
 
-       ```sql
+	```sql
   
        /*
        identifying and correcting extreme values/outliers under customer_age
@@ -153,7 +155,8 @@ Below were the steps taken to clean, transform and test the data:
        SET customer_age = 27                      -- updating extreme rows in customer_age column with computed average value
        WHERE customer_age IN (3,6,8,123,144);
       
-       ```
+ 	```
+
 
 	  ![Duplicates_doublechecking](assets/images/extreme_custage.png)
 
@@ -162,7 +165,7 @@ Below were the steps taken to clean, transform and test the data:
 
  - employment_duration
 
-       ```sql
+	```sql
   
        /*
        identifying and correcting extreme values/outliers under employment_duration
@@ -182,7 +185,8 @@ Below were the steps taken to clean, transform and test the data:
        SET employment_duration = 4         	-- updating extreme rows in customer_age column with computed average value (average value is comparable to customers w/in same age bracket)
        WHERE employment_duration = 123;
       
-       ```
+ 	```
+
 
 	  ![Duplicates_doublechecking](assets/images/extreme_empduration.png)
 
@@ -191,7 +195,7 @@ Below were the steps taken to clean, transform and test the data:
 
 5. Check for NULL values
 
-        ```sql
+	```sql
    
         /*
         Checking for null values
@@ -206,13 +210,13 @@ Below were the steps taken to clean, transform and test the data:
            term_years IS NULL OR historical_default IS NULL OR cred_hist_length IS NULL OR
            Current_loan_status IS NULL;
       
-        ```
+	```
 
 
 
  - customer_id
 
-       ```sql
+	```sql
   
        /*
        identifying NULL customer_id and removing rows with null values as it is assumed to be missing data
@@ -225,7 +229,7 @@ Below were the steps taken to clean, transform and test the data:
        DELETE FROM loan_dataset       -- removed from dataset as considered missing data
        WHERE customer_id IS NULL;
 
-       ```
+	```
 
 
 	  ![Duplicates_doublechecking](assets/images/customerid_null.png)
@@ -235,7 +239,7 @@ Below were the steps taken to clean, transform and test the data:
 
  - loan_int_rate
 
-       ```sql
+	```sql
   
        /*
        identifying NULL interest rates and updating with the average int rate, assuming all loans are interest-bearing
@@ -266,7 +270,8 @@ Below were the steps taken to clean, transform and test the data:
        SET loan_int_rate = 11.01         -- Updating NULL values with computed average int_rate, assuming all loans are interest-bearing
        WHERE loan_int_rate IS NULL
        
-       ```
+ 	```
+
 
 	  ![Duplicates_doublechecking](assets/images/average_intrate.png)
 
@@ -275,7 +280,7 @@ Below were the steps taken to clean, transform and test the data:
 
  - current_loan_status
 
-       ```sql
+	```sql
        /*
        identifying NULL values under current_loan_status and updating based on the historical_default
        */
@@ -293,7 +298,7 @@ Below were the steps taken to clean, transform and test the data:
        SET Current_loan_status = 'NO DEFAULT'    -- updating NULL values as "No Default" since all rows have no historical default
        WHERE Current_loan_status IS NULL;
 
-       ```
+	```
 
 	  ![Duplicates_doublechecking](assets/images/currentloanstatus_defaultrows.png)
 
@@ -302,7 +307,8 @@ Below were the steps taken to clean, transform and test the data:
 
  - historical_default
 
-       ```sql
+	```sql
+ 
        /*
        identifying NULL values under historical_default and updating based on the historical_default distrubtion per loan_grade
        */
@@ -327,7 +333,7 @@ Below were the steps taken to clean, transform and test the data:
        SET historical_default = 1                                                   -- updating historical_default to 1 for B to E-grade loans
        WHERE loan_grade IN ('B','C','D','E') AND historical_default IS NULL;
 
-       ```
+	```
 
 
 	  ![Duplicates_doublechecking](assets/images/historicaldefault_pergrade.png)
@@ -336,7 +342,7 @@ Below were the steps taken to clean, transform and test the data:
 
 6. Check if the data_type and IS_NULLABLE per column are correct
 
-        ```sql
+	```sql
         /*
         double checking column data types and IS_NULLABLE
         */
@@ -348,7 +354,8 @@ Below were the steps taken to clean, transform and test the data:
         FROM
            INFORMATION_SCHEMA.COLUMNS;
 
-
+	```
+ 
 	  ![Duplicates_doublechecking](assets/images/information_schema.png)
 
 
