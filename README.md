@@ -112,13 +112,14 @@ double-checking duplicates
 */
    
 SELECT
-customer_id,
-COUNT(*)
-FROM loan_dataset
+  customer_id,
+  COUNT(*)
+FROM
+  loan_dataset
 GROUP BY 
-customer_id 
+  customer_id 
 HAVING
-COUNT(*) > 1;
+  COUNT(*) > 1;
  
 ```
 
@@ -141,14 +142,14 @@ identifying and correcting extreme values/outliers under customer_age
       
 SELECT customer_age
 FROM loan_dataset
-ORDER BY customer_age ASC;     -- checking for the extreme lows, query returned 3,6,8
+ORDER BY customer_age ASC;       -- checking for the extreme lows, query returned 3,6,8
       
 SELECT customer_age
 FROM loan_dataset
-ORDER BY customer_age DESC;    -- checking for the extreme highs, query returned 123 & 144
+ORDER BY customer_age DESC;      -- checking for the extreme highs, query returned 123 & 144
       
 SELECT
-AVG(customer_age) AS avg_age     -- getting average customer_age to replace extreme values
+  AVG(customer_age) AS avg_age       -- getting average customer_age to replace extreme values
 FROM loan_dataset;
       
 UPDATE loan_dataset
@@ -173,14 +174,14 @@ identifying and correcting extreme values/outliers under employment_duration
 
 SELECT employment_duration
 FROM loan_dataset
-ORDER BY employment_duration DESC;     -- checking for the extreme highs, query returned 123 months 
+ORDER BY employment_duration DESC;       -- checking for the extreme highs, query returned 123 months 
 
 SELECT
-AVG(employment_duration) AS avg_employment_duration       -- getting average employment_duration to replace extreme values
+  AVG(employment_duration) AS avg_employment_duration         -- getting average employment_duration to replace extreme values
 FROM loan_dataset;
 
 UPDATE loan_dataset
-SET employment_duration = 4         	-- updating extreme rows in customer_age column with computed average value (average value is comparable to customers w/in same age bracket)
+SET employment_duration = 4         	  -- updating extreme rows in customer_age column with computed average value (average value is comparable to customers w/in same age bracket)
 WHERE employment_duration = 123;
       
 ```
@@ -202,11 +203,11 @@ Checking for null values
 SELECT *
 FROM loan_dataset
 WHERE
-customer_id IS NULL OR customer_age IS NULL OR customer_income IS NULL OR
-home_ownership IS NULL OR employment_duration IS NULL OR loan_intent IS NULL OR
-loan_grade IS NULL OR loan_amnt IS NULL OR loan_int_rate IS NULL OR
-term_years IS NULL OR historical_default IS NULL OR cred_hist_length IS NULL OR
-Current_loan_status IS NULL;
+  customer_id IS NULL OR customer_age IS NULL OR customer_income IS NULL OR
+  home_ownership IS NULL OR employment_duration IS NULL OR loan_intent IS NULL OR
+  loan_grade IS NULL OR loan_amnt IS NULL OR loan_int_rate IS NULL OR
+  term_years IS NULL OR historical_default IS NULL OR cred_hist_length IS NULL OR
+  Current_loan_status IS NULL;
       
 ```
 
@@ -222,9 +223,9 @@ identifying NULL customer_id and removing rows with null values as it is assumed
 
 SELECT *
 FROM loan_dataset
-WHERE customer_id IS NULL;     -- checking for NULL values under customer_id, query returned 3 rows with NULL values
+WHERE customer_id IS NULL;       -- checking for NULL values under customer_id, query returned 3 rows with NULL values
 
-DELETE FROM loan_dataset       -- removed from dataset as considered missing data
+DELETE FROM loan_dataset         -- removed from dataset as considered missing data
 WHERE customer_id IS NULL;
 
 ```
@@ -244,25 +245,25 @@ identifying NULL interest rates and updating with the average int rate, assuming
 */
 
 SELECT
-loan_intent,
-loan_int_rate
+  loan_intent,
+  loan_int_rate
 FROM
-loan_dataset
+  loan_dataset
 WHERE
-loan_int_rate IS NULL;     -- checking for NULL values under loan_int_rate, query returned 3000 rows
+  loan_int_rate IS NULL;     -- checking for NULL values under loan_int_rate, query returned 3000 rows
 
 SELECT
-AVG(loan_int_rate) AS avg_int_rate_per_intent      -- getting average int_rate to replace NULL values, query returned avg_int_rate of 11.01%
+  AVG(loan_int_rate) AS avg_int_rate_per_intent      -- getting average int_rate to replace NULL values, query returned avg_int_rate of 11.01%
 FROM
-loan_dataset;
+  loan_dataset;
 
 SELECT
-loan_intent,
-AVG(loan_int_rate) AS avg_int_rate_per_intent      -- checking average int_rate per loan type, query returned avg_int_rate of around 11% per loan type
+  loan_intent,
+  AVG(loan_int_rate) AS avg_int_rate_per_intent      -- checking average int_rate per loan type, query returned avg_int_rate of around 11% per loan type
 FROM
-loan_dataset
+  loan_dataset
 GROUP BY
-loan_intent;
+  loan_intent;
 
 UPDATE loan_dataset
 SET loan_int_rate = 11.01         -- Updating NULL values with computed average int_rate, assuming all loans are interest-bearing
@@ -283,14 +284,13 @@ WHERE loan_int_rate IS NULL
 identifying NULL values under current_loan_status and updating based on the historical_default
 */
 
-      
 SELECT
-current_loan_status,
-historical_default           -- checking NULL values under current_loan_status, query returned 4 rows in which all have NO historical default
+  current_loan_status,
+  historical_default           -- checking NULL values under current_loan_status, query returned 4 rows in which all have NO historical default
 FROM 
-loan_dataset
+  loan_dataset
 WHERE
-current_loan_status IS NULL;
+  current_loan_status IS NULL;
 
 UPDATE loan_dataset
 SET Current_loan_status = 'NO DEFAULT'    -- updating NULL values as "No Default" since all rows have no historical default
@@ -310,18 +310,17 @@ WHERE Current_loan_status IS NULL;
 /*
 identifying NULL values under historical_default and updating based on the historical_default distrubtion per loan_grade
 */
-
-      
+    
 SELECT
-loan_grade,                  -- getting count of historical default status per loan grade, query returned "A" loan_grade had less histo-
-historical_default,          -- rical default (N-1954, Y-292) while loans with "B to E" loan_grade had a higher number of historical defaults.
-COUNT(*)
+  loan_grade,                  -- getting count of historical default status per loan grade, query returned "A" loan_grade had less histo-
+  historical_default,          -- rical default (N-1954, Y-292) while loans with "B to E" loan_grade had a higher number of historical defaults.
+  COUNT(*)
 FROM 
-loan_dataset
+  loan_dataset
 GROUP BY
-loan_grade, historical_default
+  loan_grade, historical_default
 ORDER BY
-loan_grade, historical_default;
+  loan_grade, historical_default;
 
 UPDATE loan_dataset
 SET historical_default = 0                                    -- updating historical_default to 0 for A-grade loans
@@ -346,11 +345,11 @@ double checking column data types and IS_NULLABLE
 */
 
 SELECT
-column_name,
-data_type,
-IS_NULLABLE
+  column_name,
+  data_type,
+  IS_NULLABLE
 FROM
-INFORMATION_SCHEMA.COLUMNS;
+  INFORMATION_SCHEMA.COLUMNS;
 
 ```
  
