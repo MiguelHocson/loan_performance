@@ -10,6 +10,7 @@ I have chosen to undertake this project as my first end-to-end project, aiming t
 - [Development](#development)
   - [Process](#process)
   - [Data Exploration](#data-exploration)
+  - [Data Cleaning](#data-cleaning)
 
 # Objective
 
@@ -17,7 +18,7 @@ Provide a clear visualization of key performance metrics, identify emerging risk
 
 # Data Source
 
-The data is sourced from Kaggle (an Excel extract), [see here to find it.](https://www.kaggle.com/datasets/prakashraushan/loan-dataset/data)
+The data is sourced from Kaggle (an Excel extract), [Click Here](https://www.kaggle.com/datasets/prakashraushan/loan-dataset/data)
 
 # Stages
 
@@ -47,8 +48,12 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
 
 - Initial observations with the dataset:
 
-1. All columns are relevant for the analysis.
-2. There were 5 columns which contained blanks: employment_duration, loan_amnt, loan_int_rate, historical_default, current_loan_status. 
-3. Employment_duration column contained extreme values which needed to be confirmed or validated. 
-4. Loan_amnt column contained unusual character which can be seen before the British Pound symbol.
+    1. All columns are relevant to the analysis.
+    2. Five columns contained missing values: employment_duration, loan_amnt, loan_int_rate, historical_default, and current_loan_status.
+    3. The employment_duration column included extreme values that required confirmation or validation.
+    4. The loan_amnt column contained an unusual character preceding the British Pound symbol.
+
+## Data Cleaning
+
+
   
