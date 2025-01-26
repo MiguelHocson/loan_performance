@@ -78,17 +78,17 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
 ## Data Cleaning, Transforming & Testing
 
 
-The foilowing were the criteria for a clean data:
+The following were the criteria for a clean data:
 
-  - Column Relevance: Retain only the columns relevant to the analysis or application.
-  - Duplicate Check: Ensure there are no duplicate rows to maintain data accuracy and integrity.
-  - Validation of Extreme Values: Identify, validate, and address extreme values as needed, replacing them when necessary.
-  - Completeness: Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
-  - Data Types Check: Ensure data types align appropriately with the contents of each column.
+  - [Column Relevance](#Column-Relevance): Retain only the columns relevant to the analysis or application.
+  - [Duplicate Check](#Duplicate-Check): Ensure there are no duplicate rows to maintain data accuracy and integrity.
+  - [Validation of Extreme Values](#Validation-of-Extreme-Values): Identify, validate, and address extreme values as needed, replacing them when necessary.
+  - [Completeness](#Completeness): Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
+  - [Data Types Check](#Data-Types-Check): Ensure data types align appropriately with the contents of each column.
 
 
 
-- ### Column Relevance 
+### Column Relevance 
 
 
 ```sql
@@ -103,7 +103,7 @@ FROM loan_dataset
 
 
 
-- ### Duplicate Check
+### Duplicate Check
 
 ```sql
    
@@ -129,10 +129,10 @@ HAVING
 
     
 
-- ### Validation of Extreme Values
+### Validation of Extreme Values
 
 
-customer_age
+  - customer_age
 
 ```sql
   
@@ -159,7 +159,7 @@ WHERE customer_age IN (3,6,8,123,144);
 ```
 
 
-![Duplicates_doublechecking](assets/images/extreme_custage.png)
+![extreme_custage](assets/images/extreme_custage.png)
 
 
 
@@ -187,17 +187,17 @@ WHERE employment_duration = 123;
 ```
 
 
-![Duplicates_doublechecking](assets/images/extreme_empduration.png)
+![extreme_empduration](assets/images/extreme_empduration.png)
 
 
 
 
-- ### Completeness
+### Completeness
 
 ```sql
    
 /*
-Checking for null values
+Checking for null values. Customers with NULL values under employment_duration are considered unemployed
 */ 
         
 SELECT *
@@ -231,7 +231,7 @@ WHERE customer_id IS NULL;
 ```
 
 
-![Duplicates_doublechecking](assets/images/customerid_null.png)
+![customerid_null](assets/images/customerid_null.png)
 
 
 
@@ -272,7 +272,7 @@ WHERE loan_int_rate IS NULL
 ```
 
 
-![Duplicates_doublechecking](assets/images/average_intrate.png)
+![average_intrate](assets/images/average_intrate.png)
 
 
   
@@ -298,7 +298,7 @@ WHERE Current_loan_status IS NULL;
 
 ```
 
-![Duplicates_doublechecking](assets/images/currentloanstatus_defaultrows.png)
+![currentloanstatus_defaultrows](assets/images/currentloanstatus_defaultrows.png)
 
 
 
@@ -333,11 +333,11 @@ WHERE loan_grade IN ('B','C','D','E') AND historical_default IS NULL;
 ```
 
 
-![Duplicates_doublechecking](assets/images/historicaldefault_pergrade.png)
+![historicaldefault_pergrade](assets/images/historicaldefault_pergrade.png)
 
 
 
-- ### Data Types Check
+### Data Types Check
 
 ```sql
 /*
@@ -353,7 +353,7 @@ FROM
 
 ```
  
-![Duplicates_doublechecking](assets/images/information_schema.png)
+![information_schema](assets/images/information_schema.png)
 
 
 
