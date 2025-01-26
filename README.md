@@ -81,20 +81,20 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
 The foilowing were the criteria for a clean data:
 
   - Column Relevance: Retain only the columns relevant to the analysis or application.
-  - Duplicate Checking: Ensure there are no duplicate rows to maintain data accuracy and integrity.
-  - Completeness: Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
+  - Duplicate Check: Ensure there are no duplicate rows to maintain data accuracy and integrity.
   - Validation of Extreme Values: Identify, validate, and address extreme values as needed, replacing them when necessary.
-  - Data Types: Ensure data types align appropriately with the contents of each column.
+  - Completeness: Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
+  - Data Types Check: Ensure data types align appropriately with the contents of each column.
 
 
 
-Below were the steps taken to clean, transform and test the data:
+#### Column Relevance 
 
-
-#### Load the dataset in SQL
-### Examine dataset
 
 ```sql
+/*
+examining dataset and checking if all columns are relevant
+*/
 
 SELECT *
 FROM loan_dataset
@@ -103,12 +103,12 @@ FROM loan_dataset
 
 
 
-- Double-check for duplicates
+### Duplicate Check
 
 ```sql
    
 /*
-double-checking duplicates
+double-checking for duplicates
 */
    
 SELECT
@@ -129,7 +129,7 @@ HAVING
 
     
 
-- Identify Extreme Values/Outliers and replace as necessary
+### Validation of Extreme Values
 
 
 customer_age
@@ -192,7 +192,7 @@ WHERE employment_duration = 123;
 
 
 
-5. Check for NULL values
+### Completeness
 
 ```sql
    
@@ -337,7 +337,7 @@ WHERE loan_grade IN ('B','C','D','E') AND historical_default IS NULL;
 
 
 
-6. Check if the data_type and IS_NULLABLE per column are correct
+### Data Types Check
 
 ```sql
 /*
