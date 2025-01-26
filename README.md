@@ -132,7 +132,7 @@ HAVING
 4. Identify Extreme Values/Outliers and replace as necessary
 
 
- - customer_age
+  - customer_age
 
 ```sql
   
@@ -164,7 +164,7 @@ WHERE customer_age IN (3,6,8,123,144);
 
 
 
- - employment_duration
+  - employment_duration
 
 ```sql
   
@@ -213,7 +213,7 @@ WHERE
 
 
 
- - customer_id
+  - customer_id
 
 ```sql
   
@@ -236,7 +236,7 @@ WHERE customer_id IS NULL;
 
 
 
- - loan_int_rate
+  - loan_int_rate
 
 ```sql
   
@@ -277,7 +277,7 @@ WHERE loan_int_rate IS NULL
 
   
 
- - current_loan_status
+  - current_loan_status
 
 ```sql
 /*
@@ -303,7 +303,7 @@ WHERE Current_loan_status IS NULL;
 
 
 
- - historical_default
+  - historical_default
 
 ```sql
  
