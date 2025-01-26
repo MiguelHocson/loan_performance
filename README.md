@@ -68,7 +68,9 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
   4. The loan_amnt column contained an unusual character preceding the British Pound symbol.
   5. Six duplicate rows were found and removed.
 
-![Duplicates_removed](assets/images/Duplicates_removed.png)
+     ![Duplicates_removed](assets/images/Duplicates_removed.png)
+
+
 
 
 
@@ -114,7 +116,8 @@ Below were the steps taken to clean, transform and test the data:
       	 COUNT(*) > 1;
        ```
 
-	![Duplicates_doublechecking](assets/images/Duplicate_doublechecking.png)
+
+		![Duplicates_doublechecking](assets/images/Duplicate_doublechecking.png)
 
 
 
