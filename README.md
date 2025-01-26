@@ -93,13 +93,12 @@ Below were the steps taken to clean, transform and test the data:
 1. Load the dataset in SQL
 2. Examine dataset
 
-	```sql
+    ```sql
 
-SELECT *
+       SELECT *
        FROM loan_dataset
 
-       
-   ```
+    ```
 
 
 
@@ -125,7 +124,7 @@ SELECT *
 	 ![Duplicates_doublechecking](assets/images/Duplicate_doublechecking.png)
 
 
-
+    
 
 4. Identify Extreme Values/Outliers and replace as necessary
 
