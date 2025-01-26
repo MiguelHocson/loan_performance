@@ -91,8 +91,8 @@ The foilowing were the criteria for a clean data:
 Below were the steps taken to clean, transform and test the data:
 
 
-1. Load the dataset in SQL
-2. Examine dataset
+#### Load the dataset in SQL
+### Examine dataset
 
 ```sql
 
@@ -103,7 +103,7 @@ FROM loan_dataset
 
 
 
-3. Double-check for duplicates
+- Double-check for duplicates
 
 ```sql
    
@@ -129,10 +129,10 @@ HAVING
 
     
 
-4. Identify Extreme Values/Outliers and replace as necessary
+- Identify Extreme Values/Outliers and replace as necessary
 
 
-  - customer_age
+customer_age
 
 ```sql
   
