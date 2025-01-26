@@ -88,7 +88,7 @@ The foilowing were the criteria for a clean data:
 
 
 
-#### Column Relevance 
+- ### Column Relevance 
 
 
 ```sql
@@ -103,7 +103,7 @@ FROM loan_dataset
 
 
 
-### Duplicate Check
+- ### Duplicate Check
 
 ```sql
    
@@ -129,7 +129,7 @@ HAVING
 
     
 
-### Validation of Extreme Values
+- ### Validation of Extreme Values
 
 
 customer_age
@@ -192,7 +192,7 @@ WHERE employment_duration = 123;
 
 
 
-### Completeness
+- ### Completeness
 
 ```sql
    
@@ -337,7 +337,7 @@ WHERE loan_grade IN ('B','C','D','E') AND historical_default IS NULL;
 
 
 
-### Data Types Check
+- ### Data Types Check
 
 ```sql
 /*
