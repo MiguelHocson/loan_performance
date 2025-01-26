@@ -105,7 +105,7 @@ Below were the steps taken to clean, transform and test the data:
 
 3. Double-check for duplicates
 
-	```sql
+    ```sql
    
        /*
        double-checking duplicates
@@ -116,11 +116,11 @@ Below were the steps taken to clean, transform and test the data:
        	COUNT(*)
        FROM loan_dataset
        GROUP BY 
-	       customer_id 
+	customer_id 
        HAVING
-      	 COUNT(*) > 1;
+    	COUNT(*) > 1;
  
- 	```
+     ```
 
 
 	  ![Duplicates_doublechecking](assets/images/Duplicate_doublechecking.png)
