@@ -71,8 +71,8 @@ What was the step-by-step approach to executing this project from start to finis
 4. Clean and manipulate the data in SQL
 5. Test the data with SQL
 6. Load and visualize the data in Power BI
-7. Generate the findings based on the insights
-8. Write the documentation + commentary
+7. Provide the analysis and recommendation based on the findings
+8. Write the documentation process in GitHub
 9. Publish the data to GitHub Pages
 
 
@@ -96,11 +96,11 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
 
 The following were the criteria for a clean data:
 
-  1. [Column Relevance](#column-relevance): Retain only the columns relevant to the analysis or application.
-  2. [Duplicate Check](#duplicate-check): Ensure there are no duplicate rows to maintain data accuracy and integrity.
-  3. [Validation of Extreme Values](#validation-of-extreme-values): Identify, validate, and address extreme values as needed, replacing them when necessary.
-  4. [Completeness](#completeness): Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
-  5. [Data Types Check](#data-types-check): Ensure data types align appropriately with the contents of each column.
+  1. Column Relevance: Retain only the columns relevant to the analysis or application.
+  2. Duplicate Check: Ensure there are no duplicate rows to maintain data accuracy and integrity.
+  3. Validation of Extreme Values: Identify, validate, and address extreme values as needed, replacing them when necessary.
+  4. Completeness: Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
+  5. Data Types Check: Ensure data types align appropriately with the contents of each column.
 
 
 
