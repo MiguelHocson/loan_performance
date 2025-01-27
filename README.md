@@ -15,7 +15,7 @@ I have chosen to undertake this project as my first end-to-end project, aiming t
   - [Dashboard](#dashboard)
   - [DAX Measures](#dax-measures)
   - [DAX Columns](#dax-columns)
-- [Analysis & Findings](#analysis---findings)
+- [Analysis & Findings](#analysis-and-findings)
 - [Recommendations](#recommendations)
 
 
@@ -52,6 +52,7 @@ The [data](https://www.kaggle.com/datasets/prakashraushan/loan-dataset/data) is 
 - Development
 - Visualization
 - Analysis
+- Recommendation
 
 
 
