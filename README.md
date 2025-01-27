@@ -1,4 +1,4 @@
-# Data Project: Loan Performance Dashboard
+# Data Project: Loans Performance Dashboard
 
 # Overview
 
