@@ -15,6 +15,8 @@ I have chosen to undertake this project as my first end-to-end project, aiming t
   - [Dashboard](#dashboard)
   - [DAX Measures](#dax-measures)
   - [DAX Columns](#dax-columns)
+- [Analysis & Findings](#analysis---findings)
+- [Recommendations](#recommendations)
 
 
 
@@ -344,7 +346,7 @@ WHERE loan_grade IN ('B','C','D','E') AND historical_default IS NULL;
 ```
 
 
-![historicaldefault_pergrade](assets/images/historicaldefault_pergrade.png)
+![histdefault_pergrade](assets/images/histdefault_pergrade.png)
 
 
 
@@ -428,6 +430,8 @@ Current Default Count = COUNTROWS(FILTER(loan_dataset, loan_dataset[Current_loan
 
 ## DAX Columns
 
+These were the additional DAX columns used in the dashboard:
+
 - Age group
 
 ![daxcolumn_agegroup](assets/images/daxcolumn_agegroup.png)
@@ -444,4 +448,24 @@ Current Default Count = COUNTROWS(FILTER(loan_dataset, loan_dataset[Current_loan
 
 ![daxcolumn_credithistgroup](assets/images/daxcolumn_credithistgroup.png)
 
+
+
+# Analysis & Findings
+
+1.	Higher loan grades show a strong negative correlation with default rates, meaning that as loan grades increase, default rates decrease, and vice versa.
+2.	Interest rates do not exhibit a significant correlation with default rates, suggesting that other factors may influence the likelihood of default.
+3.	Medium-term loans demonstrated lower default rates and outperformed both short-term and long-term loans.
+4.	High-income individuals in their 20s with over a year of employment are considered as the lowest-risk borrowers, whereas low-income individuals in their 20s and 50s with less than a year of employment are seen as the highest-risk borrowers.
+5.	The most common factors contributing to loan defaults include low-income borrowers, weak loan grades, and limited credit histories.
+6.	The analysis indicates that borrowers who have defaulted in the past are more prone to default again, as the majority of them have defaulted on their current loans as well.
+
+
+
+# Recommendations
+
+1.	Focus on Higher Loan Grades: Prioritize lending to borrowers with higher loan grades, as these borrowers tend to have lower default rates.
+2.	Target Low-Risk Borrowers: Focus on high-income individuals in their 20s and 40s with stable employment for over a year, as they are the lowest-risk borrowers. Tailor marketing and loan offerings to attract this segment.
+3.	Prioritize Medium-Term Loans: Given that medium-term loans show better performance with lower default rates, consider offering more medium-term loan options to borrowers, especially those who may not qualify for long-term loans due to their risk profile.
+4.	Address Key Default Drivers:  Consider implementing strategies like adjusting loan terms or requiring stronger credit histories when lending to higher-risk applicants with low-income, weak loan grades, and short credit histories.
+5.	Consider Historical Default Status: Since borrowers with previous defaults are more likely to default again, exercise additional caution when lending to these individuals. Implement stricter lending criteria or higher interest rates to mitigate risk.
 
