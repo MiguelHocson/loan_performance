@@ -14,6 +14,8 @@ I have chosen to undertake this project as my first end-to-end project, aiming t
 - [Visualization](#visualization)
   - [Dashboard](#dashboard)
   - [DAX Measures](#dax-measures)
+  - [DAX Columns](#dax-columns)
+
 
 
 # Objective
@@ -89,15 +91,15 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
 
 The following were the criteria for a clean data:
 
-  - [Column Relevance](#column-relevance): Retain only the columns relevant to the analysis or application.
-  - [Duplicate Check](#duplicate-check): Ensure there are no duplicate rows to maintain data accuracy and integrity.
-  - [Validation of Extreme Values](#validation-of-extreme-values): Identify, validate, and address extreme values as needed, replacing them when necessary.
-  - [Completeness](#completeness): Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
-  - [Data Types Check](#data-types-check): Ensure data types align appropriately with the contents of each column.
+  1. [Column Relevance](#column-relevance): Retain only the columns relevant to the analysis or application.
+  2. [Duplicate Check](#duplicate-check): Ensure there are no duplicate rows to maintain data accuracy and integrity.
+  3. [Validation of Extreme Values](#validation-of-extreme-values): Identify, validate, and address extreme values as needed, replacing them when necessary.
+  4. [Completeness](#completeness): Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
+  5. [Data Types Check](#data-types-check): Ensure data types align appropriately with the contents of each column.
 
 
 
-### Column Relevance 
+### 1. Column Relevance 
 
 
 ```sql
@@ -112,7 +114,7 @@ FROM loan_dataset
 
 
 
-### Duplicate Check
+### 2. Duplicate Check
 
 ```sql
    
@@ -138,7 +140,7 @@ HAVING
 
     
 
-### Validation of Extreme Values
+### 3. Validation of Extreme Values
 
 
   - customer_age
@@ -201,7 +203,7 @@ WHERE employment_duration = 123;
 
 
 
-### Completeness
+### 4. Completeness
 
 ```sql
    
@@ -346,7 +348,7 @@ WHERE loan_grade IN ('B','C','D','E') AND historical_default IS NULL;
 
 
 
-### Data Types Check
+### 5. Data Types Check
 
 ```sql
 /*
@@ -372,13 +374,74 @@ FROM
 
 ## Dashboard
 
-![powerbi_dashboard_final](assets/images/powerbi_dashboard_final.png)
+What does the dashboard looks like?
 
-![gif_powerbi_dashboard](assets/images/gif_powerbi_dashboard.gif)
+  - The dashboard features key loan metrics at the top, a slicer for selecting loan grades, various charts tailored to address user requirements and queries, along with a summary and actionable recommendations based on the findings.
+    
+
+![powerbi_dashboard_f](assets/images/powerbi_dashboard_f.png)
+
+![powerbi_dashboard_fgif](assets/images/powerbi_dashboard_fgif.gif)
 
 
 
+## DAX Measures
 
+These were the DAX measures used in the dashboard:
 
+- Default Rate (%)
 
+``` DAX
+
+Default Rate = 
+VAR total_def = COUNTROWS(FILTER(loan_dataset, loan_dataset[Current_loan_status] = "DEFAULT"))
+VAR total_loa = COUNTROWS(loan_dataset)
+VAR drate = DIVIDE(total_def, total_loa, BLANK())
+RETURN drate
+
+```
+
+- Total Default Loans
+
+``` DAX
+
+Total Default Loans = COUNTROWS(FILTER(loan_dataset, loan_dataset[Current_loan_status] = "DEFAULT"))
+
+```
+
+- Historical Default Count
   
+``` DAX
+
+Historical Default Count = COUNTROWS(FILTER(loan_dataset, loan_dataset[historical_text] = "TRUE"))
+
+```
+
+- Current Default Count
+
+``` DAX
+
+Current Default Count = COUNTROWS(FILTER(loan_dataset, loan_dataset[Current_loan_status] = "DEFAULT"))
+
+```
+
+
+## DAX Columns
+
+- Age group
+
+![daxcolumn_agegroup](assets/images/daxcolumn_agegroup.png)
+
+- Income group
+
+![daxcolumn_incomegroup](assets/images/daxcolumn_incomegroup.png)
+
+- Employment Tenure
+
+![daxcolumn_emptenure](assets/images/daxcolumn_emptenure.png)
+
+- Credit Hist Group
+
+![daxcolumn_credithistgroup](assets/images/daxcolumn_credithistgroup.png)
+
+
