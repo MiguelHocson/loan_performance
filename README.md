@@ -8,13 +8,18 @@ I have chosen to undertake this project as my first end-to-end project, aiming t
 - [Data Source](#data-source)
 - [Stages](#stages)
 - [Development](#development)
-  - [Process](#process)
+  - [Process Outline](#process-outline)
   - [Data Exploration](#data-exploration)
-  - [Data Cleaning](#data-cleaning)
+  - [Data Cleaning, Transforming & Testing](#data-cleaning-transforming--testing)
+- [Visualization](#visualization)
+  - [Dashboard](#dashboard)
+  - [DAX Measures](#dax-measures)
+
 
 # Objective
 
 Provide a clear visualization of key performance metrics, identify emerging risk trends, and recommend data-driven decision-making to optimize loan portfolio management and mitigate potential risks.
+
 
 # Data Source
 
@@ -36,15 +41,20 @@ The [data](https://www.kaggle.com/datasets/prakashraushan/loan-dataset/data) is 
 | cred_hist_length | Length of the customer's credit history in years | 
 | Current_loan_status | Current status of the loan (DEFAULT, NO DEFAULT) |
 
+
+
 # Stages
 
 - Development
-- Testing
+- Visualization
 - Analysis
+
+
 
 # Development
 
-## Process
+
+## Process Outline
 
 What was the step-by-step approach to executing this project from start to finish?
 
@@ -57,6 +67,7 @@ What was the step-by-step approach to executing this project from start to finis
 7. Generate the findings based on the insights
 8. Write the documentation + commentary
 9. Publish the data to GitHub Pages
+
 
 ## Data Exploration
 
@@ -73,18 +84,16 @@ This was the stage where data was scanned for any errors, inconsistencies, blank
 
 
 
-
-
 ## Data Cleaning, Transforming & Testing
 
 
 The following were the criteria for a clean data:
 
-  - [Column Relevance](#Column-Relevance): Retain only the columns relevant to the analysis or application.
-  - [Duplicate Check](#Duplicate-Check): Ensure there are no duplicate rows to maintain data accuracy and integrity.
-  - [Validation of Extreme Values](#Validation-of-Extreme-Values): Identify, validate, and address extreme values as needed, replacing them when necessary.
-  - [Completeness](#Completeness): Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
-  - [Data Types Check](#Data-Types-Check): Ensure data types align appropriately with the contents of each column.
+  - [Column Relevance](#column-relevance): Retain only the columns relevant to the analysis or application.
+  - [Duplicate Check](#duplicate-check): Ensure there are no duplicate rows to maintain data accuracy and integrity.
+  - [Validation of Extreme Values](#validation-of-extreme-values): Identify, validate, and address extreme values as needed, replacing them when necessary.
+  - [Completeness](#completeness): Ensure no null values exist in any column, except where their presence is valid and contextually appropriate.
+  - [Data Types Check](#data-types-check): Ensure data types align appropriately with the contents of each column.
 
 
 
@@ -354,6 +363,18 @@ FROM
 ```
  
 ![information_schema](assets/images/information_schema.png)
+
+
+
+
+# Visualization
+
+
+## Dashboard
+
+![powerbi_dashboard_final](assets/images/powerbi_dashboard_final.png)
+
+![gif_powerbi_dashboard](assets/images/gif_powerbi_dashboard.gif)
 
 
 
