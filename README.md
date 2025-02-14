@@ -80,11 +80,10 @@ What was the step-by-step approach to executing this project from start to finis
 
 This was the stage where data was scanned for any errors, inconsistencies, blanks, duplicates, and unusual characters. Below were the initial observations on the dataset:
 
-  1. All columns are relevant to the analysis.
-  2. Five columns contained missing values: employment_duration, loan_amnt, loan_int_rate, historical_default, and current_loan_status.
-  3. The employment_duration and customer_age columns included extreme values that required confirmation or validation.
-  4. The loan_amnt column contained an unusual character preceding the British Pound symbol.
-  5. Six duplicate rows were found and removed.
+  1. Five columns contained missing values: employment_duration, loan_amnt, loan_int_rate, historical_default, and current_loan_status.
+  2. The employment_duration and customer_age columns included extreme values that required confirmation or validation.
+  3. The loan_amnt column contained an unusual character preceding the British Pound symbol.
+  4. Six duplicate rows were found and removed.
 
 
      ![Duplicates_removed](assets/images/Duplicates_removed.png)
@@ -384,9 +383,9 @@ What does the dashboard looks like?
   - The dashboard features key loan metrics at the top, a slicer for selecting loan grades, various charts tailored to address user requirements and queries, along with a summary and actionable recommendations based on the findings.
     
 
-![powerbi_dashboard_f](assets/images/powerbi_dashboard_f.png)
+![powerbi_dashboard_f](assets/images/powerbi_dashboard_f2.png)
 
-![powerbi_dashboard_fgif](assets/images/powerbi_dashboard_fgif.gif)
+![powerbi_dashboard_fgif](assets/images/powerbi_dashboard_f2gif.gif)
 
 
 
