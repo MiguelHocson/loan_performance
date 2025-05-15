@@ -2,7 +2,7 @@
 
 # Overview
 
-I have chosen to undertake this project as my first end-to-end project, aiming to leverage my extensive experience in credit risk analysis. The main goal of the dashboard is to analyze and identify different factors that influence loan default rates through various metrics such as average interest rates, income levels, credit history length, and historical loan statuses. The project covers the entire process—from data exploration and cleaning to manipulation and preparation—using tools such as Excel, SQL, and Power BI.
+I have chosen to undertake this project as my first end-to-end project, aiming to leverage my extensive experience in credit risk analysis. The main goal of the dashboard is to analyze and identify various metrics that influence loan default rates such as average interest rates, income levels, credit history length, and historical loan statuses. The project covers the entire process—from data exploration and cleaning to manipulation and preparation—using tools such as Excel, SQL, and Power BI.
 
 # Table of Contents
 
